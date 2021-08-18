@@ -1,0 +1,26 @@
+diff --git a/src/config/types.ts b/src/config/types.ts
+index 8084be186..8ba783fcb 100644
+--- a/src/config/types.ts
++++ b/src/config/types.ts
+@@ -60,6 +60,8 @@ export type Source = {
+ 	mediaProxy?: string;
+ 
+ 	signToActivityPubGet?: boolean;
++
++	filesPath?: string;
+ };
+ 
+ /**
+diff --git a/src/services/drive/internal-storage.ts b/src/services/drive/internal-storage.ts
+index 5ec563584..de7404eab 100644
+--- a/src/services/drive/internal-storage.ts
++++ b/src/services/drive/internal-storage.ts
+@@ -3,7 +3,7 @@ import * as Path from 'path';
+ import config from '@/config';
+ 
+ export class InternalStorage {
+-	private static readonly path = Path.resolve(__dirname, '../../../files');
++	private static readonly path = config.filesPath || Path.resolve(__dirname, '../../../files');
+ 
+ 	public static resolvePath = (key: string) => Path.resolve(InternalStorage.path, key);
+ 
