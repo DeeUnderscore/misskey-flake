@@ -12,15 +12,15 @@ index 8084be186..8ba783fcb 100644
  
  /**
 diff --git a/src/services/drive/internal-storage.ts b/src/services/drive/internal-storage.ts
-index 5ec563584..de7404eab 100644
+index deaf3dc83..8a3bf9bc0 100644
 --- a/src/services/drive/internal-storage.ts
 +++ b/src/services/drive/internal-storage.ts
-@@ -3,7 +3,7 @@ import * as Path from 'path';
- import config from '@/config';
+@@ -9,7 +9,7 @@ const _filename = __filename;
+ const _dirname = dirname(_filename);
  
  export class InternalStorage {
--	private static readonly path = Path.resolve(__dirname, '../../../files');
-+	private static readonly path = config.filesPath || Path.resolve(__dirname, '../../../files');
+-	private static readonly path = Path.resolve(_dirname, '../../../files');
++	private static readonly path = config.filesPath || Path.resolve(_dirname, '../../../files');
  
  	public static resolvePath = (key: string) => Path.resolve(InternalStorage.path, key);
  

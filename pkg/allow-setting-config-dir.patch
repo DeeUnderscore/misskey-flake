@@ -1,13 +1,13 @@
 diff --git a/src/config/load.ts b/src/config/load.ts
-index 0929e8041..1a25115f6 100644
+index c7965e6c4..7aa68ec80 100644
 --- a/src/config/load.ts
 +++ b/src/config/load.ts
-@@ -10,7 +10,7 @@ const meta = require('../meta.json');
+@@ -15,7 +15,7 @@ const _dirname = dirname(_filename);
  /**
   * Path of configuration directory
   */
--const dir = `${__dirname}/../../.config`;
-+const dir = process.env.MISSKEY_CONFIG_DIR || `${__dirname}/../../.config`;
+-const dir = `${_dirname}/../../.config`;
++const dir = process.env.MISSKEY_CONFIG_DIR || `${_dirname}/../../.config`;
  
  /**
   * Path of configuration file
