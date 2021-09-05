@@ -14,13 +14,13 @@ let
   yarn' = yarn.override { inherit nodejs; };
 in stdenv.mkDerivation rec {
   pname = "misskey";
-  version = "12.89.2";
+  version = "12.90.1";
 
   src = fetchFromGitHub {
     owner = "misskey-dev";
     repo = "misskey";
     rev = version; 
-    sha256 = "sha256-0GDxfb9AuQZXmaVtnquBPRqw1sCgKhceSAhRbw8Urgs=";
+    sha256 = "sha256-n6EeWRqJBpKoAQ62jtnKOWwOxj7WwPItIp/B5NUQTK0=";
   };
 
   # large parts of this are lifted from pkgs/servers/code-server/default.nix in nixpkgs
@@ -45,7 +45,7 @@ in stdenv.mkDerivation rec {
 
     outputHashMode = "recursive";
     outputHashAlgo = "sha256";
-    outputHash = "sha256-7Rg5rg7maAAjybpCzcegd9YI0JwP1BYyuj+qT7GdYWI=";
+    outputHash = "sha256-kuKreurxeKd6wSDHIZWfDe43iPmqyq1zd4xZwH8Mzbs=";
   };
 
   # this allows figuring out the yarnCache outputHash by running
