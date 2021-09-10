@@ -189,6 +189,9 @@ in {
       '';
 
       serviceConfig = {
+        User = "misskey";
+        Group = "misskey";
+
         WorkingDirectory = "${misskey}/libexec/misskey";
         ExecStart = "${misskey}/bin/misskey";
       };
