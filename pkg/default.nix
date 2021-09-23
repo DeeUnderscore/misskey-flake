@@ -14,19 +14,19 @@ let
   yarn' = yarn.override { inherit nodejs; };
 in stdenv.mkDerivation rec {
   pname = "misskey";
-  version = "12.90.1";
+  version = "12.91.0";
 
   src = fetchFromGitHub {
     owner = "misskey-dev";
     repo = "misskey";
     rev = version; 
-    sha256 = "sha256-n6EeWRqJBpKoAQ62jtnKOWwOxj7WwPItIp/B5NUQTK0=";
+    sha256 = "sha256-UyF3gZtSV0RG9+UGQepP8JhH9pTn1iQr7qPMNn8KXMI=";
   };
 
   # large parts of this are lifted from pkgs/servers/code-server/default.nix in nixpkgs
   #
   # mkYarnPackage/yarn2nix would be an alternative here, but problems arise from
-  # problems with resultions in Misskey's package.json 
+  # problems with resolutions in Misskey's package.json
   # (cf https://github.com/nix-community/yarn2nix/issues/136)
   
   yarnCache = stdenv.mkDerivation {
@@ -45,7 +45,7 @@ in stdenv.mkDerivation rec {
 
     outputHashMode = "recursive";
     outputHashAlgo = "sha256";
-    outputHash = "sha256-kuKreurxeKd6wSDHIZWfDe43iPmqyq1zd4xZwH8Mzbs=";
+    outputHash = "sha256-b7DCUrpHpd0M9eyatzkTH/u1sSIMMP9ix1cKwSFB77k=";
   };
 
   # this allows figuring out the yarnCache outputHash by running
