@@ -110,7 +110,9 @@ in stdenv.mkDerivation rec {
   installPhase = ''
     mkdir -p $out/libexec/misskey $out/bin
 
-    cp -R built locales migration assets docs $out/libexec/misskey
+    cp -R built locales migration assets $out/libexec/misskey
+    mkdir -p $out/libexec/misskey/src
+    cp -R src/docs $out/libexec/misskey/src
     cp index.js package.json yarn.lock \
       ormconfig.js CHANGELOG.md \
       $out/libexec/misskey
