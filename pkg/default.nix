@@ -9,18 +9,19 @@
 , python3
 , pkg-config
 , cypress
-, ffmpeg }:
+, ffmpeg
+, git }:
 let
   yarn' = yarn.override { inherit nodejs; };
 in stdenv.mkDerivation rec {
   pname = "misskey";
-  version = "12.92.0";
+  version = "12.94.1";
 
   src = fetchFromGitHub {
     owner = "misskey-dev";
     repo = "misskey";
     rev = version; 
-    sha256 = "sha256-faPu1N9d+jvGuloly4mbxup9szMZFbux2ArIO5lgnYw=";
+    sha256 = "sha256-cNR9wH2dgDSas4NUai001XD9rYVdF1x8qm6yai/QZ/E=";
   };
 
   # large parts of this are lifted from pkgs/servers/code-server/default.nix in nixpkgs
@@ -32,7 +33,7 @@ in stdenv.mkDerivation rec {
   yarnCache = stdenv.mkDerivation {
     name =  "${pname}-${version}-yarn-cache";
     inherit src;
-    nativeBuildInputs = [ yarn' ];
+    nativeBuildInputs = [ yarn' git ];
     buildPhase = ''
       export HOME=$PWD
 
@@ -45,7 +46,7 @@ in stdenv.mkDerivation rec {
 
     outputHashMode = "recursive";
     outputHashAlgo = "sha256";
-    outputHash = "sha256-V/z4HsOPUto/7Yih4nAHolrYv9ZobIsxvCRJO4AT/IY=";
+    outputHash = "sha256-9qeBaaXf4UOurwbjRDnAdZDGhAROt3yFlZxqa33ukHs=";
   };
 
   # this allows figuring out the yarnCache outputHash by running
