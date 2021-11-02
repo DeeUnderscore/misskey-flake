@@ -15,13 +15,13 @@ let
   yarn' = yarn.override { inherit nodejs; };
 in stdenv.mkDerivation rec {
   pname = "misskey";
-  version = "12.94.1";
+  version = "12.95.0";
 
   src = fetchFromGitHub {
     owner = "misskey-dev";
     repo = "misskey";
     rev = version; 
-    sha256 = "sha256-cNR9wH2dgDSas4NUai001XD9rYVdF1x8qm6yai/QZ/E=";
+    sha256 = "sha256-eV6LhQcsJibRii1wn+GyDgkpYCWHC7EKvKl8O+VdPBw=";
   };
 
   # large parts of this are lifted from pkgs/servers/code-server/default.nix in nixpkgs
