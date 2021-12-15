@@ -18,7 +18,7 @@ For example, your flake.nix might look something like this:
   };
 
   outputs = {self, nixpkgs, misskey}: {
-    nixosConfigurations.exampleBox = nixpkgs-sys.lib.nixosSystem {
+    nixosConfigurations.exampleBox = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [ ./exampleBox/configuration.nix ];
       specialArgs = { 
